@@ -17,7 +17,6 @@ const itemSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
@@ -30,6 +29,7 @@ const shoppingListSchema = new mongoose.Schema(
     },
 
     items: [itemSchema],
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
