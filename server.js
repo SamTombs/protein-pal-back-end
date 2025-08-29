@@ -29,7 +29,7 @@ app.use(logger('dev'));
 app.use('/auth', authRouter);
 app.use('/test-jwt', testJwtRouter);
 app.use('/users', usersRouter);
-app.use('/api', itemsRouter)
+app.use('/items', itemsRouter)
 app.use('/lists', listRouter)
 
 

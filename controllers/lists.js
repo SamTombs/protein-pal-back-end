@@ -32,11 +32,12 @@ router.post("/", verifyToken, async (req, res) => {
 
 // Update List
 
-router.put("/:listId", verifyToken, async (req, res) => {
+router.patch("/:listId", verifyToken, async (req, res) => {
+  console.log(req.body)
   try {
     const updatedList = await ShoppingList.findByIdAndUpdate(
       req.params.listId,
-      req.body,
+      { $push:{items: req.body }},
       { new: true }
     );
     res.status(200).json(updatedList);
@@ -44,6 +45,9 @@ router.put("/:listId", verifyToken, async (req, res) => {
     console.log(error);
   }
 });
+
+
+
 
 // Delete List
 
