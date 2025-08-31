@@ -46,6 +46,21 @@ router.patch("/:listId", verifyToken, async (req, res) => {
   }
 });
 
+// Delete items from list
+
+router.patch("/:listId/removeItem", verifyToken, async (req, res) => {
+  console.log("THIS IS THE BODY",req.body)
+  try {
+    const updatedList = await ShoppingList.findByIdAndUpdate(
+      req.params.listId,
+      { $pull:{items: req.body }},
+      { new: true }
+    );
+    res.status(200).json(updatedList);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 

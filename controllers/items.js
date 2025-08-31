@@ -23,7 +23,7 @@ router.get("/", verifyToken, async (req, res) => {
       name: p.product_name,
       brand: p.brands,
       protein: p.nutriments.proteins_100g || 0,
-      image: p.image_url || null,
+      image: p.image_front_url || p.image_url || p.image_small_url || null,
     }));
 
     items.sort((a, b) => b.protein - a.protein);

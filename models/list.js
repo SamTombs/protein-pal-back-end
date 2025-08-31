@@ -13,6 +13,9 @@ const itemSchema = new mongoose.Schema(
     protein: {
       type: Number,
     },
+    image: {
+      type: String,
+    }
   },
   { timestamps: true }
 );
